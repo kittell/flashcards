@@ -5,6 +5,7 @@ Created on Mar 12, 2020
 '''
 
 import pandas as pd
+import click
 from random import shuffle
 
 # (0) Classes
@@ -92,6 +93,12 @@ class Game:
         print()
         self.deck.discard(card)
         
+class Dashboard:
+    def __init__(self):
+        pass
+    
+    def start_screen(self):
+        pass
 
 # (1) Load a specific flashcards deck
 game = Game()
