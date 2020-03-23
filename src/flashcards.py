@@ -5,8 +5,8 @@ Created on Mar 12, 2020
 '''
 
 import pandas as pd
-import click
 from random import shuffle
+from src.flashcards_gui import FlashcardsApp
 
 # (0) Classes
 class Deck:
@@ -57,8 +57,8 @@ class Pile:
 class Card:
     def __init__(self, card_id, card_data):
         self.id = card_id
-        self.side1 = card_data['Text 1']
-        self.side2 = card_data['Text 2']
+        self.side1 = card_data['Side 1']
+        self.side2 = card_data['Side 2']
         
     def show_side(self, side):
         if side == 2:
@@ -66,13 +66,13 @@ class Card:
         else:
             print(self.side1)
     
-class Game:
+class Round:
     def __init__(self):
         self.deck = self.select_deck()
         
     def select_deck(self):
         # TODO: hardcoding deck for now
-        return Deck("pmbok_flashcards.xlsx")
+        return Deck("flashcards_pmbok.xlsx")
     
     def play(self):
         cards_remaining = self.deck.count_remaining_cards()
@@ -93,13 +93,7 @@ class Game:
         print()
         self.deck.discard(card)
         
-class Dashboard:
-    def __init__(self):
-        pass
-    
-    def start_screen(self):
-        pass
+
 
 # (1) Load a specific flashcards deck
-game = Game()
-game.play()
+r = FlashcardsApp()
