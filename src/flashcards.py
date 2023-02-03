@@ -1,22 +1,47 @@
-'''
-Created on Mar 12, 2020
-
-@author: sd931e
-'''
-
-import pandas as pd
+from pandas import read_excel
 from random import shuffle
-from src.flashcards_gui import FlashcardsApp
+
+from flashcards_gui import FlashcardsGUI
+
+class Application:
+    def __init__(self, *args, **kwargs):
+        
+        # gui = FlashcardsGUI()
+        # gui.mainloop()
+        
+        print('starting app')
+        print('loading deck')
+        
+        return
+    
+    
+    def add_deck(self):
+        return
+    
+    def load_deck(self):
+        return
+    
+    def close_deck(self):
+        return
+    
+    def edit_deck(self):
+        return
+
 
 # (0) Classes
 class Deck:
+    """
+    A Deck is a collection of flashcards.
+    
+    """
+    
     def __init__(self, filename):
         self.filename = filename
         self.reset_deck()
         
     def reset_deck(self):
         # Reload data
-        self.df = pd.read_excel(self.filename)
+        self.df = read_excel(self.filename)
         self.df['id'] = self.df.index.tolist()
         
         # Initialize piles
@@ -96,4 +121,4 @@ class Round:
 
 
 # (1) Load a specific flashcards deck
-r = FlashcardsApp()
+app = Application()
